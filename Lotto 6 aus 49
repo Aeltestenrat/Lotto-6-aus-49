@@ -1,33 +1,27 @@
 import random
 
 def generate_lottery_numbers():
-    # Generiert eine Liste von 6 einzigartigen Zufallszahlen zwischen 1 und 49
     return random.sample(range(1, 50), 6)
 
 def generate_super_number():
-    # Generiert eine einzelne Zufallszahl zwischen 1 und 9 als Superzahl
     return random.randint(1, 9)
 
-# Festlegen der User-Zahlen und der festen Superzahl
-user_numbers = [5, 12, 23, 34, 45, 49]  # Beispiel: feste User-Zahlen
-user_super_number = 3  # Feste Superzahl
+
+user_numbers = [5, 12, 23, 34, 45, 49]  
+user_super_number = 3  
 print("User-Zahlen:", user_numbers, "Superzahl:", user_super_number)
 
-# Anzahl der Versuche initialisieren
 attempts = 0
 
 while True:
-    # Generiere die zufälligen Zahlen des Programms und die Superzahl
+    
     random_numbers = generate_lottery_numbers()
     random_super_number = generate_super_number()
     attempts += 1
 
-    # Ausgabe der zufälligen Zahlen, der Superzahl und der aktuellen Anzahl der Versuche
     print(f"Versuch {attempts}: {random_numbers}, Superzahl: {random_super_number}")
 
-    # Überprüfe, ob die zufälligen Zahlen und die Superzahl mit den User-Zahlen und der User-Superzahl übereinstimmen
     if set(random_numbers) == set(user_numbers) and random_super_number == user_super_number:
         break
 
-# Ausgabe der Anzahl der Versuche, bis eine Übereinstimmung gefunden wurde
 print(f"Übereinstimmende Zahlen und Superzahl nach {attempts} Versuchen gefunden: {random_numbers}, Superzahl: {random_super_number}")
